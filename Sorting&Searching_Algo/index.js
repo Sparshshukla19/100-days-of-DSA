@@ -1,102 +1,116 @@
 /* LINEAR SEARCH */
 
-// let prompt = require("prompt-sync")();
-// let arr = [51,41,58,69,46,12,19,74,10];
-// let target = Number(prompt("Enter a target element:"));
+let prompt = require("prompt-sync")();
+let arr = [51,41,58,69,46,12,19,74,10];
+let target = Number(prompt("Enter a target element:"));
 
-// let index = -1;
-// for(let i=0;i<arr.length;i++){
-//     if(target === arr[i]){
-//         index = i;
-//         break ;
-//     }
-// }
-// console.log(index== -1? "Not found": "found at "+ index +" index");
+let index = -1;
+for(let i=0;i<arr.length;i++){
+    if(target === arr[i]){
+        index = i;
+        break ;
+    }
+}
+console.log(index== -1? "Not found": "found at "+ index +" index");
 
 /* BINARY SEARCH */
 
-// let prompt = require("prompt-sync")();
-// let arr = [4,8,13,19,28,39,49,78,88];
-// let target = Number(prompt("Enter a Target number:"));
+let prompt = require("prompt-sync")();
+let arr = [4,8,13,19,28,39,49,78,88];
+let target = Number(prompt("Enter a Target number:"));
 
-// let start = 0, end=arr.length-1,index=-1 ;
+let start = 0, end=arr.length-1,index=-1 ;
 
-// while(start<=end){
-//     let mid = Math.floor((start+end)/2);
-//     if(arr[mid]==target){
-//         index = mid;
-//         break;
-//     }
-//     else if(arr[mid]<target){
-//         start = mid+1;
-//     }
-//     else{
-//         end = mid-1;
-//     }
-// }
+while(start<=end){
+    let mid = Math.floor((start+end)/2);
+    if(arr[mid]==target){
+        index = mid;
+        break;
+    }
+    else if(arr[mid]<target){
+        start = mid+1;
+    }
+    else{
+        end = mid-1;
+    }
+}
 
-// if(index==-1){
-//     console.log("Target not found");
+if(index==-1){
+    console.log("Target not found");
     
-// }
-// else{
-//     console.log(`Target found at ${index} index`);
+}
+else{
+    console.log(`Target found at ${index} index`);
     
-// }
+}
 
 
 //----------SORTING ALGOS--------------//
 //----BUBBLE SORT-------//
-// let arr = [7,8,2,9,1,3];
-// let n = arr.length;
-// for(let i=0;i<n-1;i++){
-//     for(let j=0;j<n-1-i;j++){
-//         if(arr[j]>arr[j+1]){
-//             let temp = arr[j];
-//             arr[j] = arr[j+1];
-//             arr[j+1] = temp
-//         }
-//     }
-// }
-// console.log(arr);
+let arr = [7,8,2,9,1,3];
+let n = arr.length;
+for(let i=0;i<n-1;i++){
+    for(let j=0;j<n-1-i;j++){
+        if(arr[j]>arr[j+1]){
+            let temp = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = temp
+        }
+    }
+}
+console.log(arr);
 
 
 //-----INSERTION SORT--------//
+/*
+*-for i->n
+*-key = arr[i]
+*-while(j->i-1 to 0 && arr[j]>key && j>=0)
+*-arr[j+1]=arr[j], j--
+*-after loop arr[j+1] = key (obviously j will out of bound)
+*/
 
-// let arr = [7,8,2,9,1,3];
-// let n = arr.length;
+let arr = [7,8,2,9,1,3];
+let n = arr.length;
 
-// for(let i=1;i<n;i++){
-//     let key = arr[i];
-//     let j = i-1;
-//     while(j>=0 && arr[j]>key){
-//         arr[j+1] = arr[j];
-//         j-- ;
-//     }
-//     arr[j+1] = key
-// }
+for(let i=1;i<n;i++){
+    let key = arr[i];
+    let j = i-1;
+    while(j>=0 && arr[j]>key){
+        arr[j+1] = arr[j];
+        j-- ;
+    }
+    arr[j+1] = key
+}
 
-// console.log(arr);
+console.log(arr);
 
 
-//------SELELCTION SORT-------//
+//------SELECTION SORT-------//
+/* 
+*- for->0 to n-1 as nth will sorted automatically
+*- min=i as we assume first element sorted and else unsorted
+*- for-> i=1 -> till n
+*- if arr[j]<arr[min] ----> min=j
+*- then swap(arr[i],arr[min])
+*/
 
-// let arr = [7,8,2,9,1,3];
-// let n = arr.length;
-//     for(let i=0;i<n-1;i++){
-//         let min = i;
-//         for(let j=i+1;j<n;j++){
-//             if(arr[j]<arr[min]){
-//                 min = j;
-//             }
-//         }
-//         if(min != i){
-//             let temp = arr[min];
-//             arr[min] = arr[i];
-//             arr[i] = temp; 
-//         }
+let arr = [7,8,2,9,1,3];
+let n = arr.length;
+    for(let i=0;i<n-1;i++){
+        let min = i;
+        for(let j=i+1;j<n;j++){
+            if(arr[j]<arr[min]){
+                min = j;
+            }
+        }
+        if(min != i){
+            let temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = temp; 
+        }
 
-//     }
+    }
 
-//     console.log(arr);
+    console.log(arr);
 
