@@ -53,8 +53,11 @@ function changingCases(str){
         if(ascii>=65 && ascii<=90){
             ans = ans + String.fromCharCode(ascii + 32);
         }
-        else{
+        else if(ascii>=97 && ascii<=122){
             ans = ans + String.fromCharCode(ascii - 32);
+        }
+        else{
+            ans = ans + str[i]; 
         }
     }
     console.log(ans);
@@ -111,6 +114,47 @@ function frequencyOfStr(str){
     }
 }
 
+/* Less space than previous */
+
+function frequencyOfStrLessSpace(str){
+    let arr = new Array(26).fill(0);
+    for(let i=0;i<str.length;i++){
+        let ascii = str.charCodeAt(i);
+        arr[ascii-97] = arr[ascii-97] + 1;
+    }
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]>0){
+            console.log(String.fromCharCode(i+97)+"->"+arr[i]);
+        }
+    }
+}
+
+// frequencyOfStrLessSpace("sparshshukla");
 // frequencyOfStr("sparshshukla");
 
-/*  */
+/* Strings are Anagram */
+
+function isAnagramStr(str1,str2){
+    if(str1.length !== str2.length){
+        console.log("Strings are not Anagram");
+        return ;
+    }
+
+     let arr = new Array(128).fill(0);
+    for(i=0;i<str1.length;i++){
+        let ascii1 = str1.charCodeAt(i);
+        let ascii2 = str2.charCodeAt(i);
+        arr[ascii1] = arr[ascii1]+1;
+        arr[ascii2] = arr[ascii2]-1;
+    }
+    for(let i=0;i<arr.length;i++){
+        if(arr[i] !== 0){
+           console.log("Strings are Not Anagram");
+           return ;
+        }
+        
+    }
+    console.log("Strings are Anagram");
+}
+
+isAnagramStr("chai","shai");
