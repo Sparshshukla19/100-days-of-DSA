@@ -130,7 +130,7 @@ function frequencyOfStrLessSpace(str){
 }
 
 // frequencyOfStrLessSpace("sparshshukla");
-// frequencyOfStr("sparshshukla");
+frequencyOfStr("sparshshukla");
 
 /* Strings are Anagram */
 
@@ -157,4 +157,4 @@ function isAnagramStr(str1,str2){
     console.log("Strings are Anagram");
 }
 
-isAnagramStr("chai","shai");
+// isAnagramStr("chai","shai");
