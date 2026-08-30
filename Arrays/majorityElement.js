@@ -17,4 +17,4 @@ function majorityElem(arr){
     return ans;
 }
 
-console.log(majorityElem([1,5,5,5,6,5,2,1]));
+console.log(majorityElem([5,5,5,5,5,4,4,4,4]));
